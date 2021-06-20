@@ -1,0 +1,66 @@
+{% extends 'snipest/base.html' %}
+{% load static %}
+{% block contentbase %}
+<!-- Page Header Start -->
+<div class="page-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Class</h2>
+                    </div>
+                    <div class="col-12">
+                        <a href="">Home</a>
+                        <a href="">Class</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- Page Header End -->
+
+
+<!-- Class Start -->
+<div class="class">
+            <div class="container">
+                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    <p>Our Classes</p>
+                    <h2>Yoga Class Shedule</h2>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <ul id="class-filter">
+                            <li data-filter="*" class="filter-active">All Classes</li>
+{#                            <li data-filter=".filter-1">Body Balance</li>#}
+{#                            <li data-filter=".filter-2">Hatha Yoga</li>#}
+{#                            <li data-filter=".filter-3">Children Yoga</li>#}
+{#                            <li data-filter=".filter-4">Yoga Dance</li>#}
+                        </ul>
+                    </div>
+                </div>
+                <div class="row class-container">
+                    <div class="col-lg-4 col-md-6 col-sm-12 class-item filter-1 wow fadeInUp" data-wow-delay="0.0s">
+                        <div class="class-wrap">
+                            <div class="class-img">
+                                <img src="{% static '' %}img/E-learning.jpg" alt="Image">
+                            </div>
+                            <div class="class-text">
+                                <div class="class-teacher">
+{#                                    <img src="img/teacher-1.png" alt="Image">#}
+                                    <h3>Enoll Now</h3>
+                                    <a href="{% url 'classes' %}">+</a>
+                                </div>
+                                <h2>Pilates Classes</h2>
+                                <div class="class-meta">
+{#                                    <p><i class="far fa-calendar-alt"></i>Sun, Tue, Thu</p>#}
+{#                                    <p><i class="far fa-clock"></i>9:00 - 10:00</p>#}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- Class End -->
+
+{% endblock contentbase %}
+
+

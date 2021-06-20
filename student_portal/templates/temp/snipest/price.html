@@ -1,0 +1,44 @@
+{% load static %}
+
+<!-- Price Start -->
+<div class="price">
+            <div class="container">
+                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    <p>Online Package</p>
+                    <h2>Online Pricing Plan</h2>
+                </div>
+                <div class="row">
+                    {% for i in price %}
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="price-item">
+                            <div class="price-header">
+                                <div class="price-title">
+                                    <h2>{{i.pakg}}</h2>
+                                </div>
+                                <div class="price-prices">
+                                    <h2><small>$</small>{{i.price}}<span>/ mo</span></h2>
+                                </div>
+                            </div>
+                            <div class="price-body">
+                                <div class="price-description">
+                                    <ul>
+                                        <li>{{i.foffere}}</li>
+                                        <li>{{ i.soffere }}</li>
+                                        <li>{{ i.toffere }}</li>
+                                        <li>{{ i.fouoffere }}</li>
+                                        <li>{{ i.fivoffere }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="price-footer">
+                                <div class="price-action">
+                                    <a class="btn" href="">Join Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+<!-- Price End -->

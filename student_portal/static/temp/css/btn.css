@@ -1,0 +1,35 @@
+
+.btn {
+  padding : 8px 15px ;
+  color : #ebffee;
+  background-color: hsl(201, 94%, 50%);
+  border: none ;
+  border-radius: 30px ;
+  font-family : sans-serif;
+  font-size : 15px ;
+  font-weight : 500;
+  letter-spacing: 2px ;
+  cursor : pointer ;
+  position : relative ;
+  overflow : hidden ;
+   z-index: 1 ;
+      box-shadow: 6px 3px 6px 0 rgb(0 0 50%);
+
+
+}
+.btn::after {
+  content:'';
+  height:100% ;
+  width:0% ;
+  position: absolute ;
+  background-color : #09ddc7;
+  top : 0 ;
+  left : 0 ;
+  transition : all 1s ease-in-out ;
+  z-index: -1 ;
+
+}
+
+.btn:hover::after {
+  width : 100% ;
+}

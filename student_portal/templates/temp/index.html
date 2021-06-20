@@ -1,0 +1,365 @@
+{% extends 'temp/snipest/base.html' %}
+{% load static %}
+{% load cart %}
+{% block contentbase %}
+
+ <!-- Hero Start -->
+        <div class="hero" >
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="hero-text">
+                            <h1>Learning Portal Enhance Your Skills</h1>
+                            <p>
+                                Lorem ipsum dolor sit amet elit. Phasell nec pretum mi. Curabi ornare velit non. Aliqua metus tortor auctor quis sem.
+                            </p>
+                            <div class="hero-btn">
+                                <a class="btn" href="">Join Now</a>
+                                <a class="btn" href="">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 d-none d-md-block">
+                        <div class="hero-image">
+                            <img src="{% static '' %}temp/img/bk.webp" alt="Hero Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero End -->
+
+
+        <!-- About Start -->
+        <div class="about wow fadeInUp" data-wow-delay="0.1s">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 col-md-6">
+                        <div class="about-img">
+                            <img src="{% static 'temp/img/e-blog.png' %}" alt="Image">
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-6">
+                        <div class="section-header text-left">
+                            <p>Learn About Us</p>
+                            <h2>Welcome to E-learning</h2>
+                        </div>
+                        <div class="about-text">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus.
+                            </p>
+                            <a class="btn" href="">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+
+        <!-- Service Start -->
+        <div class="service">
+            <div class="container">
+                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    <p>What we do</p>
+                    <h2>E learning Portal</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.0s">
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="flaticon-workout"></i>
+                            </div>
+                            <h3>Codeing</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="service-item active">
+                            <div class="service-icon">
+{#                                <i class="flaticon-workout-1"></i>#}
+                            </div>
+                            <h3>Accounts</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="service-item">
+                            <div class="service-icon">
+{#                                <i class="flaticon-workout-2"></i>#}
+                            </div>
+                            <h3>Marketing</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service End -->
+
+
+        <!-- Class Start -->
+        <div class="class">
+            <div class="container">
+                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    <p>Our Classes</p>
+                    <h2>Online Class Shedule</h2>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <ul id="class-filter">
+                            <li  class="filter-active">All Online Class</li>
+{#                            <li data-filter=".filter-1">Pilates Yoga</li>#}
+{#                            <li data-filter=".filter-2">Hatha Yoga</li>#}
+{#                            <li data-filter=".filter-3">Vinyasa yoga</li>#}
+                        </ul>
+                    </div>
+                </div>
+                <div class="row class-container">
+                    {% for cor in cour %}
+                    <div class="col-lg-4 col-md-6 col-sm-12 class-item  wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="class-wrap">
+                            <div class="class-img">
+                                <a href="/courseview/{{ cor.id }}"><img src="{{cor.photo.url}}" alt="Image"></a>
+                            </div>
+                            <div class="class-text">
+                                <div class="class-teacher">
+{#                                    {{ cor | is_in_cart:request.session.cart }}#}
+{#                                    <form method="post">#}
+{#                                        {% csrf_token %}#}
+{#                                        <input type="text" hidden name="paid" value="{{ cor.id }}" >#}
+{#                                        <input style="border-radius: 30px; color: #0aa4f7;background-color: lightpink" type="submit" value="+" >#}
+{#                                    </form>#}
+{#                                    <img src="{% static '' %}temp/img/E-learning.jpg" alt="Image">#}
+                                    {% if cor|is_in_cart:request.session.cart %}
+                                        <h3 style="font-size: 12px">You Already Purchase This course</h3>
+                                    {% else %}
+                                        <h3>Enoll Now</h3>
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        <input type="text" hidden name="paid" value="{{ cor.id }}" >
+{#                                        <button type="submit">+</button>#}
+                                        <input type="submit" style="border-radius: 30px; color: #0aa4f7;background-color: lightpink" value="+" >
+                                    </form>
+                                    {% endif %}
+                                </div>
+                                <h2>{{cor.course}}</h2>
+                                <div class="class-meta">
+                                    <h2>${{cor.price}}</h2>
+{#                                    <p><i class="far fa-calendar-alt"></i>Sun, Tue, Thu</p>#}
+{#                                    <p><i class="far fa-clock"></i>9:00 - 10:00</p>#}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- Class End -->
+
+    {% include 'temp/snipest/discount.html' %}
+
+        <div class="price">
+            <div class="container">
+                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    <p>Online Package</p>
+                    <h2>Online Pricing Plan</h2>
+                </div>
+                <div class="row">
+                    {% for i in price %}
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="price-item">
+                            <div class="price-header">
+                                <div class="price-title">
+                                    <h2>{{i.pakg}}</h2>
+                                </div>
+                                <div class="price-prices">
+                                    <h2><small>$</small>{{i.price}}<span>/ mo</span></h2>
+                                </div>
+                            </div>
+                            <div class="price-body">
+                                <div class="price-description">
+                                    <ul>
+                                        <li>{{i.foffere}}</li>
+                                        <li>{{ i.soffere }}</li>
+                                        <li>{{ i.toffere }}</li>
+                                        <li>{{ i.fouoffere }}</li>
+                                        <li>{{ i.fivoffere }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="price-footer">
+                                <div class="price-action">
+                                    <form method="post">
+                                        {% csrf_token %}
+                                    <input hidden type="text" name="plan" value="{{i.id}}">
+                                    <input style="background-color: lightpink;color: #0D47A1;border-radius: 10px" type="submit" value="Join Now">
+                                        </form>
+{#                                    <a class="btn" href="">Join Now</a>#}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- Testimonial Start -->
+        <div class="testimonial wow fadeInUp" data-wow-delay="0.1s">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Testimonial</p>
+                    <h2>Our Client Say!</h2>
+                </div>
+                <div class="owl-carousel testimonials-carousel">
+                    <div class="testimonial-item">
+                        <div class="testimonial-img">
+                            <img src="{% static '' %}temp/img/testimonial-1.jpg" alt="Image">
+                        </div>
+                        <div class="testimonial-text">
+                            <p>
+                                Lorem ipsum dolor sit amet consec adipis elit. Etiam accums lacus eget velit tincid, quis suscip justo dictum.
+                            </p>
+                            <h3>Customer Name</h3>
+                            <h4>Profession</h4>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-img">
+                            <img src="{% static '' %}temp/img/testimonial-2.jpg" alt="Image">
+                        </div>
+                        <div class="testimonial-text">
+                            <p>
+                                Lorem ipsum dolor sit amet consec adipis elit. Etiam accums lacus eget velit tincid, quis suscip justo dictum.
+                            </p>
+                            <h3>Customer Name</h3>
+                            <h4>Profession</h4>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-img">
+                            <img src="{% static '' %}temp/img/testimonial-3.jpg" alt="Image">
+                        </div>
+                        <div class="testimonial-text">
+                            <p>
+                                Lorem ipsum dolor sit amet consec adipis elit. Etiam accums lacus eget velit tincid, quis suscip justo dictum.
+                            </p>
+                            <h3>Customer Name</h3>
+                            <h4>Profession</h4>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-img">
+                            <img src="{% static '' %}temp/img/testimonial-4.jpg" alt="Image">
+                        </div>
+                        <div class="testimonial-text">
+                            <p>
+                                Lorem ipsum dolor sit amet consec adipis elit. Etiam accums lacus eget velit tincid, quis suscip justo dictum.
+                            </p>
+                            <h3>Customer Name</h3>
+                            <h4>Profession</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+
+
+        {% include 'temp/snipest/team.html' %}
+
+
+        <!-- Blog Start -->
+        <div class="blog">
+            <div class="container">
+                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    <p>From Blog</p>
+                    <h2>Latest Articles</h2>
+                </div>
+                <div class="owl-carousel blog-carousel wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <img src="{% static '' %}temp/img/user.jpg" alt="Blog">
+                        </div>
+                        <div class="blog-text">
+                            <h2>Lorem ipsum dolor</h2>
+                            <div class="blog-meta">
+                                <p><i class="far fa-list-alt"></i>Coding</p>
+                                <p><i class="far fa-calendar-alt"></i>01-Jan-2045</p>
+                                <p><i class="far fa-comments"></i>5</p>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
+                            </p>
+                            <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <img src="{% static '' %}temp/img/user.jpg" alt="Blog">
+                        </div>
+                        <div class="blog-text">
+                            <h2>Lorem ipsum dolor</h2>
+                            <div class="blog-meta">
+                                <p><i class="far fa-list-alt"></i>Accounts</p>
+                                <p><i class="far fa-calendar-alt"></i>01-Jan-2045</p>
+                                <p><i class="far fa-comments"></i>5</p>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
+                            </p>
+                            <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <img src="{% static '' %}temp/img/user.jpg" alt="Blog">
+                        </div>
+                        <div class="blog-text">
+                            <h2>Lorem ipsum dolor</h2>
+                            <div class="blog-meta">
+                                <p><i class="far fa-list-alt"></i>Marketing</p>
+                                <p><i class="far fa-calendar-alt"></i>01-Jan-2045</p>
+                                <p><i class="far fa-comments"></i>5</p>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
+                            </p>
+                            <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <img src="{% static '' %}temp/img/user.jpg" alt="Blog">
+                        </div>
+                        <div class="blog-text">
+                            <h2>Lorem ipsum dolor</h2>
+                            <div class="blog-meta">
+                                <p><i class="far fa-list-alt"></i>HTML</p>
+                                <p><i class="far fa-calendar-alt"></i>01-Jan-2045</p>
+                                <p><i class="far fa-comments"></i>5</p>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
+                            </p>
+                            <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog End -->
+
+{% endblock contentbase %}

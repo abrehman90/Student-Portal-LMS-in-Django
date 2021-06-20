@@ -1,0 +1,65 @@
+{%extends 'temp/snipest/base.html' %}
+{% load static %}
+{% block css %}
+    <link href="{% static '' %}temp/css/sign.css" rel="stylesheet">
+    <link href="{% static '' %}temp/css/btn.css" rel="stylesheet">
+{% endblock css %}
+
+{% block contentbase %}
+    <br>
+<section>
+    <div class="container">
+      <div class="user signinBx">
+        <div class="imgBx"><img src="{% static 'temp/img/bk.webp' %}" alt="" /></div>
+        <div class="formBx">
+          <form method="post">
+              {% csrf_token %}
+            <h2>Sign In</h2>
+            <input type="text" name="username" placeholder="Username" />
+            <input type="password" name="password" placeholder="Password" />
+            <button class="btn" type="submit" name="Signin"  >Sign In</button>
+            <p class="signup">
+              Don't have an account ?
+              <a  onclick="toggleForm();">Sign Up.</a>
+                <div style="text-align: center" class="row"><span style="color: red;">{{ formsign.errors }}</span></div>
+              {% for i in messages %}
+                  <div style="text-align: center" class="row"><span style="color: #000000;">{{ i }}</span></div>
+              {% endfor %}
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="user signupBx">
+        <div class="formBx">
+          <form method="post" role="form" >
+              {% csrf_token %}
+            <h2>Create an account</h2>
+              {{ formsign.username }}
+              {{ formsign.email }}
+              {{ formsign.password }}
+              {{ formsign.confirm_password }}
+{#            <input id="username" type="text" name="username" placeholder="Username" />{{ formsign.username }}#}
+{#            <input id="email" type="email" name="email" placeholder="Email Address" />{{ formsign.email }}#}
+{#            <input id="password" type="password" name="password" placeholder="Create Password" />{{ formsign.password }}#}
+{#            <input id="retypepassword" type="password" name="retypepassword" placeholder="Confirm Password" />{{ formsign.confirm_password }}#}
+            <button class="btn" type="submit" id="signup" name="action" >Sign Up</button>
+            <p class="signup">
+              Already have an account ?
+              <a onclick="toggleForm();">Sign in.</a>
+            </p>
+          </form>
+        </div>
+        <div class="imgBx"><img src="{% static 'temp/img/bk.webp' %}" alt="" /></div>
+      </div>
+    </div>
+  </section>
+{% endblock contentbase %}
+
+{% block js %}
+    <script>
+        const toggleForm = () => {
+          const container = document.querySelector('.container');
+          container.classList.toggle('active');
+        };
+    </script>
+{% endblock js %}
