@@ -1,18 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from authy.forms import SignupForm, ChangePasswordForm, EditProfileForm, SignForm
+from authy.forms import SignupForm, ChangePasswordForm, EditProfileForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
-from django.db.models import Sum
 from authy.models import Profile
-from django.db import transaction
 from django.template import loader
-from django.http import HttpResponse, HttpResponseRedirect
-from django.urls import reverse
+from django.http import HttpResponse
 from django.contrib.auth.models import auth
-from django.core.paginator import Paginator
 from django.contrib import messages
-from django.urls import resolve
 
 # Create your views here.
 
@@ -23,7 +18,7 @@ def SideNavInfo(request):
 
 	if user.is_authenticated:
 		nav_profile = Profile.objects.get(user=user)
-	
+
 	return {'nav_profile': nav_profile}
 
 
@@ -68,46 +63,6 @@ def Signup(request):
 	context = {'formsign': form,}
 	return render(request, 'temp/sign.html', context)
 
-
-def Sign(request):
-	if request.method == 'POST' and 'action' in request.POST:
-		form =SignForm(request.POST)
-		if form.is_valid():
-			username = form.cleaned_data.get('username')
-			email = form.cleaned_data.get('email')
-			select = form.cleaned_data.get('select')
-			password = form.cleaned_data.get('password')
-			User.objects.create_user(username=username, email=email ,password=password)
-			# profile = Profile.objects.create(select=select)
-			# profile = Profile.objects.get(select=select)
-			# profile.save()
-			print(username,email)
-			messages.info(request,"Your account has been successfully Registered, Now you LogIn ")
-			return redirect('login')
-	else:
-		form = SignForm()
-		if request.user.is_authenticated:
-			return redirect('index')
-	context = {'formsign': form,}
-	return render(request, 'temp/log.html', context)
-
-# def Signup(request):
-# 	if request.method == 'POST':
-# 		form = SignupForm(request.POST)
-# 		if form.is_valid():
-# 			username = form.cleaned_data.get('username')
-# 			email = form.cleaned_data.get('email')
-# 			password = form.cleaned_data.get('password')
-# 			User.objects.create_user(username=username, email=email, password=password)
-# 			return redirect('edit-profile')
-# 	else:
-# 		form = SignupForm()
-#
-# 	context = {
-# 		'form':form,
-# 	}
-#
-# 	return render(request, 'registration/signup.html', context)
 
 
 @login_required

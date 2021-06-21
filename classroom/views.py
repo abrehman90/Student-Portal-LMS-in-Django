@@ -35,15 +35,6 @@ def batchCategories(request):
 	return render(request, 'classroom/batch.html', context)
 
 
-# def batchCategories(request,id):
-# 	categories = Category.objects.filter(id=id)
-#
-# 	context = {
-# 		'categories': categories
-# 	}
-# 	return render(request, 'classroom/categories.html', context)
-
-
 def Categories(request,id):
 	categories = Category.objects.filter(id=id)
 
@@ -54,11 +45,9 @@ def Categories(request,id):
 
 def CategoryCourses(request, category_slug):
 	category = get_object_or_404(Category, slug=category_slug)
-	# batch_category = get_object_or_404(Category.batch, slug=batch_category_slug)
 	courses = Course.objects.filter(category=category)
 	context = {
 		'category': category,
-		# 'batch_category': batch_category,
 		'courses': courses,
 	}
 	return render(request, 'classroom/categorycourses.html', context)
@@ -72,7 +61,6 @@ def NewCourse(request):
 			picture = form.cleaned_data.get('picture')
 			title = form.cleaned_data.get('title')
 			description = form.cleaned_data.get('description')
-			# category = form.cleaned_data.get('batch_category')
 			category = form.cleaned_data.get('category')
 			syllabus = form.cleaned_data.get('syllabus')
 			Course.objects.create(picture=picture, title=title, description=description, category=category, syllabus=syllabus, user=user)

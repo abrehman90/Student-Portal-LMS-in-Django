@@ -56,7 +56,6 @@ def AssignmentDetail(request, course_id, module_id, assignment_id):
 		'assignment': assignment,
 		'course_id': course_id,
 		'my_submissions': my_submissions,
-		'course_id': course_id,
 		'module_id': module_id,
 	}
 	return render(request, 'assignment/assignment.html', context)

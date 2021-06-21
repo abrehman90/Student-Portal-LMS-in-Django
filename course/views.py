@@ -14,9 +14,8 @@ def newcourse(request):
             cart = {}
             cart[product] = 1
             request.session['cart'] = cart
-        print('cart',request.session['cart'])
-    cour = PaidCourse.objects.all()
-    pri = PricePlan.objects.all()
+    cour = PaidCourse.objects.all()[0:4]
+    pri = PricePlan.objects.all()[0:3]
     context = {'cour':cour,'price': pri}
     return render(request,'temp/index.html',context)
 
@@ -25,7 +24,17 @@ def productView(request, myid):
     context = {'products' :product[0]}
     return render(request, 'temp/view.html', context)
 
-class cart(View):
-    def get(self,request):
-        print(request.session.get('cart').keys())
-        return render(request,'temp/cart.html')
+
+def allcourse(request):
+    if request.method == 'POST':
+        product = request.POST.get('paid')
+        cart = request.session.get('cart')
+        if cart:
+            cart[product] = 1
+        else:
+            cart = {}
+            cart[product] = 1
+            request.session['cart'] = cart
+    cour = PaidCourse.objects.order_by('-id')
+    context = {'cour':cour}
+    return render(request,'temp/class.html',context)

@@ -16,7 +16,9 @@ STATUS_CHOICES = (
 	('graded', 'Graded'),
 )
 
+
 def user_directory_path(instance, filename):
+
 	#THis file will be uploaded to MEDIA_ROOT /the user_(id)/the file
 	return 'user_{0}/{1}'.format(instance.user.id, filename)
 
@@ -24,9 +26,6 @@ def user_directory_path(instance, filename):
 class Batch_Category(models.Model):
 	title = models.CharField(max_length=100, verbose_name='Title')
 	slug = models.SlugField(unique=True)
-
-	# def get_absolute_url(self):
-		# return reverse('batchcategories', arg=[self.slug])
 
 	def __str__(self):
 		return self.title

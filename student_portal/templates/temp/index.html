@@ -46,10 +46,10 @@
                         </div>
                         <div class="about-text">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
+                                ScienceSoft is a global IT consulting and software development company headquartered in McKinney, TX, US. We provide customers with eLearning portal consultancy, custom development of full-fledged learning portals and offer support and evolution services.
                             </p>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus.
+                                 If you opt for a custom eLearning portal, please check our web portal development offer
                             </p>
                             <a class="btn" href="">Learn More</a>
                         </div>
@@ -71,33 +71,30 @@
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.0s">
                         <div class="service-item">
                             <div class="service-icon">
-                                <i class="flaticon-workout"></i>
                             </div>
                             <h3>Codeing</h3>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non
+                                Use HTML PYTHON, DJango, CSS , JS Using responsive web design for a better visitor experience Take advantage of social media
                             </p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="service-item active">
                             <div class="service-icon">
-{#                                <i class="flaticon-workout-1"></i>#}
                             </div>
                             <h3>Accounts</h3>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non
+                                Create quality content that Learning Management System (LMS) leads are seeking Use appropriate key phrases so your audience can find your content on Google
                             </p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
                         <div class="service-item">
                             <div class="service-icon">
-{#                                <i class="flaticon-workout-2"></i>#}
                             </div>
                             <h3>Marketing</h3>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non
+                                Students are used to working online, and appreciate the flexibility. Online courses are less liable to disruption, as we’ve seen with the recent pandemic.
                             </p>
                         </div>
                     </div>
@@ -118,9 +115,6 @@
                     <div class="col-12">
                         <ul id="class-filter">
                             <li  class="filter-active">All Online Class</li>
-{#                            <li data-filter=".filter-1">Pilates Yoga</li>#}
-{#                            <li data-filter=".filter-2">Hatha Yoga</li>#}
-{#                            <li data-filter=".filter-3">Vinyasa yoga</li>#}
                         </ul>
                     </div>
                 </div>
@@ -133,13 +127,6 @@
                             </div>
                             <div class="class-text">
                                 <div class="class-teacher">
-{#                                    {{ cor | is_in_cart:request.session.cart }}#}
-{#                                    <form method="post">#}
-{#                                        {% csrf_token %}#}
-{#                                        <input type="text" hidden name="paid" value="{{ cor.id }}" >#}
-{#                                        <input style="border-radius: 30px; color: #0aa4f7;background-color: lightpink" type="submit" value="+" >#}
-{#                                    </form>#}
-{#                                    <img src="{% static '' %}temp/img/E-learning.jpg" alt="Image">#}
                                     {% if cor|is_in_cart:request.session.cart %}
                                         <h3 style="font-size: 12px">You Already Purchase This course</h3>
                                     {% else %}
@@ -147,7 +134,6 @@
                                     <form method="post">
                                         {% csrf_token %}
                                         <input type="text" hidden name="paid" value="{{ cor.id }}" >
-{#                                        <button type="submit">+</button>#}
                                         <input type="submit" style="border-radius: 30px; color: #0aa4f7;background-color: lightpink" value="+" >
                                     </form>
                                     {% endif %}
@@ -155,8 +141,6 @@
                                 <h2>{{cor.course}}</h2>
                                 <div class="class-meta">
                                     <h2>${{cor.price}}</h2>
-{#                                    <p><i class="far fa-calendar-alt"></i>Sun, Tue, Thu</p>#}
-{#                                    <p><i class="far fa-clock"></i>9:00 - 10:00</p>#}
                                 </div>
                             </div>
                         </div>
@@ -205,7 +189,6 @@
                                     <input hidden type="text" name="plan" value="{{i.id}}">
                                     <input style="background-color: lightpink;color: #0D47A1;border-radius: 10px" type="submit" value="Join Now">
                                         </form>
-{#                                    <a class="btn" href="">Join Now</a>#}
                                 </div>
                             </div>
                         </div>
