@@ -47,7 +47,7 @@
                             </div>
                             <div class="text">
                                 <i class="fa fa-phone-alt"></i>
-                                <h2>+923 0600 74552</h2>
+                                <h2>+923 0604 93989</h2>
                                 <p>For Other Info</p>
                             </div>
                         </div>
@@ -78,27 +78,16 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
                         <a href="/" class="nav-item nav-link active">Home</a>
-{#                        <a href="{% url 'classes' %}" class="nav-item nav-link">Lecture</a>#}
+                        <a href="{% url 'shopping_cart:allcourse' %}" class="nav-item nav-link">Lecture</a>
                         <a href="{% url 'team' %}" class="nav-item nav-link">Teacher</a>
-{#                        <a href="{% url 'services' %}" class="nav-item nav-link">Quiz</a>#}
-{#                        <a href="{% url 'assigment' %}" class="nav-item nav-link">Assignment</a>#}
                         <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
-{#                        <a href="portfolio.html" class="nav-item nav-link">Pose</a>#}
                         <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
-{#                        <a href="{% url 'shopping_cart:cart' %}" class="nav-item nav-link">Cart</a>#}
-{#                        <a href="{% url 'index' %}" class="nav-item nav-link">Student Portal</a>#}
                         {% if user.is_authenticated %}
                             <div class="nav-item dropdown">
-{#                                  {% if nav_profile.picture %}#}
-{#                                    <img src="{{ nav_profile.picture.url }}"class="nav-link dropdown-toggle">#}
-{#                                  {% else %}#}
-{#                                    <img src="{% static 'img/no_avatar.jpg' %}"class="nav-link dropdown-toggle">#}
-{#                                  {% endif %}#}
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ user.username }}</a>
                                 <div class="dropdown-menu">
                                     <a href="" class="dropdown-item">Profile</a>
                                     <a href="{% url 'index' %}" class="dropdown-item">Dashboard</a>
-{#                                    <a href="{% url 'categories' %}" class="dropdown-item">Courses</a>#}
                                     <a href="{% url 'inbox' %}" class="dropdown-item">Inbox{% if directs_count %}<span class="new badge red">{{ directs_count }}</span>{% endif %}</a>
                                     <a href="{% url 'logout' %}" class="dropdown-item">LogOut</a>
                                 </div>
@@ -122,10 +111,10 @@
                 <div class="container">
                     <div class="footer-info">
                         <a href="{% url 'indexshow' %}" class="footer-logo">Learing <span>Portal</span> - LMS</a>
-                        <h3>Plaza 11, Second floor CCA Sector C, phase 6 DHA, Lahore</h3>
+                        <h3>Model Town Lahore</h3>
                         <div class="footer-menu">
-                            <p>+923 1004 74853</p>
-                            <p>info@example.com</p>
+                            <p>+923 0604 93989</p>
+                            <p>abtechsol09@gmail.com</p>
                         </div>
                         <div class="footer-social">
                             <a href=""><i class="fab fa-twitter"></i></a>
