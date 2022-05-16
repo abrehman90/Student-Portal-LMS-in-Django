@@ -23,14 +23,24 @@ Installation
 
 This requires Python Django to run. Install the dependencies and devDependencies and start the server
 
-$ git clone git@github.com:abrehman90/Student-Portal-LMS-in-Django.git
+```bash
+  git clone git@github.com:abrehman90/Student-Portal-LMS-in-Django.git
+```
 
-$ cd Student-Portal-LMS-in-Django
+```bash
+ cd Student-Portal-LMS-in-Django
+```
 
-$ python manage.py migrate
+```bash
+ python manage.py migrate
+```
 
-$ python manage.py createsuperuser
+```bash
+ python manage.py createsuperuser
+```
 
+```bash
 $ python manage.py runserver
+```
 
 ![git](https://user-images.githubusercontent.com/79878896/122668007-6fdb2380-d1cf-11eb-8ce4-493505565212.JPG)
