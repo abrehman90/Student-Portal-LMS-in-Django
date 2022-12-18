@@ -44,3 +44,8 @@ $ python manage.py runserver
 ```
 
 ![git](https://user-images.githubusercontent.com/79878896/122668007-6fdb2380-d1cf-11eb-8ce4-493505565212.JPG)
+
+![singup](https://user-images.githubusercontent.com/79878896/208314336-c51516df-ae28-4c21-95e7-dc2fa1a0c081.png)
+
+![login](https://user-images.githubusercontent.com/79878896/208314342-38b6c6d0-40ad-4e34-a030-55c5e576f12b.png)
+
